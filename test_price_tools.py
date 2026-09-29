@@ -4,4 +4,4 @@ def test_highest_basic():
 def test_highest_one_item():
     assert highest([1])==1
 def test_highest_tie():
-    assert highest([23,23]) == 25
+    assert highest([23,23]) == 23
