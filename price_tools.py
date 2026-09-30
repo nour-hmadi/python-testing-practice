@@ -24,3 +24,18 @@ def daily_returns(prices):
         the_return.append(round(((prices[day]/prices[day -1 ] - 1 ) * 100),2))
     return the_return
 #print(daily_returns([100, 110, 99]))
+
+
+def average_price(prices):
+    if len(prices)==0:
+        raise ValueError("the list is empty")
+    else: 
+        validate_prices(prices)
+        total = 0
+        for price in prices:
+            total = total + price
+        avg = round( total / len(prices),2)    
+        return avg
+
+#rint(average_price([]))
+#rint(average_price([100, 110, 99]))    # expected: 103.0

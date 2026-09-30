@@ -1,0 +1,6 @@
+<trade>
+  <id>1001</id>
+  <product>Bond</product>
+  <currency>USD</currency>
+  <amount>1000000</amount>
+</trade>

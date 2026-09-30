@@ -1,4 +1,4 @@
-from price_tools import highest, daily_returns
+from price_tools import highest, daily_returns, average_price
 import pytest
 
 
@@ -27,3 +27,17 @@ def test_daily_returns_with_zeroes():
 def test_daily_returns_negative_price():
     with pytest.raises(ValueError):
         daily_returns([100, -5, 90])
+
+def test_average_price_basic():
+    assert average_price([1,2,3,4,5]) == 3
+
+def test_average_price_empty_list():
+    with pytest.raises(ValueError):
+        average_price([])
+
+def test_average_price_floats():
+    assert average_price([1.9999,3.55555])==2.78
+
+def test_average_price_zero():
+    with pytest.raises(ValueError):
+        average_price([6,8,3,9,0])
