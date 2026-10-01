@@ -39,3 +39,4 @@ def average_price(prices):
 
 #rint(average_price([]))
 #rint(average_price([100, 110, 99]))    # expected: 103.0
+
