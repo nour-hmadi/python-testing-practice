@@ -1,6 +1,6 @@
 from price_tools import highest, daily_returns, average_price
+from ex3 import count_currencies
 import pytest
-
 
 def test_highest_basic():
     assert highest([10,30,50,98,76,99,89,10]) == 99
@@ -18,6 +18,7 @@ def test_daily_returns_basic():
     assert daily_returns([100,200]) == [100]
 
 def test_daily_returns_flat():
+    
     assert daily_returns([130,130,130]) == [0,0]
 
 def test_daily_returns_with_zeroes():
@@ -41,3 +42,18 @@ def test_average_price_floats():
 def test_average_price_zero():
     with pytest.raises(ValueError):
         average_price([6,8,3,9,0])
+        
+#def test_count_up_days_zero():
+    
+
+def test_count_currencies_small_letters():
+    assert count_currencies(["usd", "USD", "usD"]) == {"USD": 3}
+    
+def test_count_currencies_basic():
+    assert count_currencies(["LBP","USD","EUR","AED","AED","USD","USD","AED"]) == {"LBP": 1,"USD": 3,"EUR": 1,"AED": 3}
+    
+def test_count_currencies_empty():
+    assert count_currencies([])=={}
+
+def test_count_currencies_one_item():
+    assert count_currencies(["LBP"])=={"LBP": 1}
