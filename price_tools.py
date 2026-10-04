@@ -40,3 +40,16 @@ def average_price(prices):
 #rint(average_price([]))
 #rint(average_price([100, 110, 99]))    # expected: 103.0
 
+def moving_average(prices, n):
+    if (isinstance(n, int) == False) or (n <=0):
+        raise ValueError("please enter a positive integer")
+    averages=[]
+    for day in range (0, len(prices)-n+1):
+            moving_sum=0
+            for i in range(0,n):
+                moving_sum = moving_sum + prices[day + i ]
+            averages.append(round((moving_sum / n),2))
+    return averages
+
+
+print(moving_average([5, 5, 5], 6))
